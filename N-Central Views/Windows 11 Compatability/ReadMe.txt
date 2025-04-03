@@ -1,0 +1,1 @@
+The Windows 11 Compatability views are based around a custom service that has been added to N-Central to detect if a device is compatible with N-Central. 

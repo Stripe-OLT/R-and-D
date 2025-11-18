@@ -1,4 +1,4 @@
-CREATE VIEW dbo.NOC_Missing_Patches_Wks_Count_Top10
+CREATE VIEW dbo.NOC_Missing_Patches_Workstations_Count_Top
 AS
 WITH RankedDevices AS (
     SELECT
@@ -11,6 +11,7 @@ WITH RankedDevices AS (
 		MissingImportant,
 		MissingModerate,
 		MissingUnspecified,
+        lastupdated,
         ROW_NUMBER() OVER (
             PARTITION BY customername
             ORDER BY MissingCritical DESC
@@ -27,6 +28,7 @@ SELECT
     MissingImportant,
     MissingModerate,
     MissingUnspecified,
+    lastupdated,
     rn
 FROM RankedDevices
-WHERE rn <= 10;
+WHERE rn <= 5;

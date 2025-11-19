@@ -31,4 +31,5 @@ SELECT
     lastupdated,
     rn
 FROM RankedDevices
+ORDER BY customername ASC, rn DESC;
 WHERE rn <= 5;
